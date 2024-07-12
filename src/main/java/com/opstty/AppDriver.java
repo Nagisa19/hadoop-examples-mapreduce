@@ -2,6 +2,7 @@ package com.opstty;
 
 import com.opstty.job.WordCount;
 import com.opstty.job.DistrictsContainingTrees;
+import com.opstty.job.SpeciesList;
 import org.apache.hadoop.util.ProgramDriver;
 
 public class AppDriver {
@@ -14,6 +15,8 @@ public class AppDriver {
                     "A map/reduce program that counts the words in the input files.");
             programDriver.addClass("districts", DistrictsContainingTrees.class,
                     "A map/reduce program that lists the distinct districts containing trees.");
+            programDriver.addClass("specieslist", SpeciesList.class,
+                    "A map/reduce program that lists the different species of trees.");
 
             exitCode = programDriver.run(argv);
         } catch (Throwable throwable) {

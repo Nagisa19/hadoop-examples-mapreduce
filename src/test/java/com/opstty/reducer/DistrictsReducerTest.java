@@ -35,7 +35,6 @@ public class DistrictsReducerTest {
         // Load a sample from the CSV file using a relative path
         URL resource = getClass().getResource("/data/trees.csv");
         BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
-        String header = reader.readLine();
         String value1 = reader.readLine();
         String value2 = reader.readLine();
         reader.close();

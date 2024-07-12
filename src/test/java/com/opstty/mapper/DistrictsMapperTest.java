@@ -34,8 +34,8 @@ public class DistrictsMapperTest {
         URL resource = getClass().getResource("/data/trees.csv");
         BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
         String header = reader.readLine();
-        String value1 = reader.readLine();  // read the first data line
-        String value2 = reader.readLine();  // read the second data line
+        String value1 = reader.readLine();
+        String value2 = reader.readLine();
         reader.close();
 
         // Simulate reading the header line
@@ -44,13 +44,11 @@ public class DistrictsMapperTest {
         // First data line
         this.districtsMapper.map(null, new Text(value1), this.context);
         String[] fields1 = value1.split(";");
-        verify(this.context, times(1))
-                .write(new Text(fields1[1]), NullWritable.get());
+        verify(this.context, times(1)).write(new Text(fields1[1]), NullWritable.get());
 
         // Second data line
         this.districtsMapper.map(null, new Text(value2), this.context);
         String[] fields2 = value2.split(";");
-        verify(this.context, times(1))
-                .write(new Text(fields2[1]), NullWritable.get());
+        verify(this.context, times(1)).write(new Text(fields2[1]), NullWritable.get());
     }
 }

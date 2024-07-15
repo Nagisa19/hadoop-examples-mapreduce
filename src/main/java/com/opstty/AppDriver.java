@@ -1,9 +1,6 @@
 package com.opstty;
 
-import com.opstty.job.WordCount;
-import com.opstty.job.DistrictsContainingTrees;
-import com.opstty.job.SpeciesList;
-import com.opstty.job.TreeKindCount;
+import com.opstty.job.*;
 import org.apache.hadoop.util.ProgramDriver;
 
 public class AppDriver {
@@ -20,6 +17,8 @@ public class AppDriver {
                     "A map/reduce program that lists the different species of trees.");
             programDriver.addClass("treekindcount", TreeKindCount.class,
                     "A map/reduce program that counts the number of trees of each kind.");
+            programDriver.addClass("tallesttree", TallestTree.class,
+                    "A map/reduce program that finds the tallest tree of each kind.");
 
             exitCode = programDriver.run(argv);
         } catch (Throwable throwable) {
